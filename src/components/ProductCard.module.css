@@ -1,0 +1,189 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition:
+    box-shadow 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.imageLink {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-accent-soft);
+}
+
+.image,
+.imageAlt {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.6s var(--ease);
+}
+
+.imageAlt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.card:hover .imageAlt {
+  opacity: 1;
+}
+
+.tags {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tagHit {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.tagNew {
+  background: var(--color-sage-dark);
+  color: #fff;
+}
+
+.tagSale {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+.fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.fav:hover {
+  transform: scale(1.1);
+}
+
+.favActive {
+  color: var(--color-accent);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 14px 14px 16px;
+}
+
+.name {
+  margin-bottom: 4px;
+  font-size: 1.3rem;
+}
+
+.name a {
+  text-decoration: none;
+}
+
+.name a:hover {
+  color: var(--color-accent-dark);
+}
+
+.meta {
+  margin-bottom: 12px;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.oldPrice {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.add {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 0.88rem;
+}
+
+.outOfStock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px dashed var(--color-border);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 479px) {
+  .body {
+    padding: 10px 10px 12px;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+}

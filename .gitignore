@@ -1,0 +1,14 @@
+node_modules
+dist
+.vercel
+*.log
+.env
+.env.*
+.DS_Store
+.netlify
+
+# Служебные файлы (только локально)
+.claude/
+.impeccable/
+PROJECT.md
+0[0-9]-*.md

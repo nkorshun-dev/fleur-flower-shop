@@ -1,0 +1,160 @@
+.layout {
+  display: grid;
+  gap: 32px;
+}
+
+/* На мобильных фильтры — выезжающая панель */
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: min(360px, 90vw);
+  padding: 20px var(--gutter);
+  overflow-y: auto;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-hover);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 0.3s var(--ease),
+    visibility 0.3s;
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.panelOpen {
+  transform: none;
+  visibility: visible;
+  /* При открытии панель видима сразу — иначе в неё нельзя перевести фокус */
+  transition: transform 0.3s var(--ease);
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.panelClose {
+  display: inline-flex;
+  padding: 8px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+}
+
+.panelFooter {
+  position: sticky;
+  bottom: -20px;
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding: 20px 0;
+  background: var(--color-bg);
+}
+
+.panelApply {
+  flex: 1;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: rgba(45, 42, 38, 0.35);
+}
+
+.results {
+  min-width: 0;
+}
+
+.toolbar {
+  display: grid;
+  /* minmax(0, …) — чтобы длинное название сортировки не распирало страницу на 320px */
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+}
+
+.search {
+  grid-column: 1 / -1;
+}
+
+.filterToggle {
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+.toolbar > label {
+  justify-self: end;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  margin: 16px 0;
+}
+
+.count {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+    gap: 40px;
+  }
+
+  .panel {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    z-index: auto;
+    width: auto;
+    padding: 0;
+    overflow: visible;
+    background: none;
+    box-shadow: none;
+    transform: none;
+    visibility: visible;
+    transition: none;
+  }
+
+  .panelHead,
+  .panelFooter,
+  .backdrop,
+  .filterToggle {
+    display: none;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .search {
+    grid-column: auto;
+  }
+}

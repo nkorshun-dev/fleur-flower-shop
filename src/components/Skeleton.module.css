@@ -1,0 +1,50 @@
+.card {
+  overflow: hidden;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.block {
+  background: linear-gradient(90deg, #f3ede7 0%, #faf6f2 50%, #f3ede7 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite linear;
+}
+
+.image {
+  aspect-ratio: 4 / 5;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+}
+
+.line {
+  height: 20px;
+  width: 75%;
+  border-radius: 6px;
+}
+
+.lineShort {
+  height: 14px;
+  width: 45%;
+  border-radius: 6px;
+}
+
+.button {
+  height: 40px;
+  margin-top: 6px;
+  border-radius: 999px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
