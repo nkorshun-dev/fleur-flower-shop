@@ -268,7 +268,7 @@ export default function Checkout() {
           <ul className={styles.items}>
             {cart.lines.map((l) => (
               <li key={l.id}>
-                <img src={l.product.images[0]} srcSet={imageSrcSet(l.product.images[0])} sizes="80px" alt="" loading="lazy" />
+                <img draggable="false" src={l.product.images[0]} srcSet={imageSrcSet(l.product.images[0])} sizes="80px" alt="" loading="lazy" />
                 <span>
                   {l.product.name}
                   <small>× {l.qty}</small>

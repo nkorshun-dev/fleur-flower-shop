@@ -82,7 +82,7 @@ export default function Product() {
       <div className={styles.layout}>
         <div className={styles.gallery}>
           <div className={styles.mainImage}>
-            <img key={activeImage} src={product.images[activeImage]} alt={`${product.name}, фото ${activeImage + 1}`} />
+            <img draggable="false" key={activeImage} src={product.images[activeImage]} alt={`${product.name}, фото ${activeImage + 1}`} />
           </div>
           <ul className={styles.thumbs} aria-label="Фотографии товара">
             {product.images.map((src, i) => (
@@ -94,7 +94,7 @@ export default function Product() {
                   aria-label={`Показать фото ${i + 1}`}
                   aria-pressed={i === activeImage}
                 >
-                  <img src={src} srcSet={imageSrcSet(src)} sizes="100px" alt="" loading="lazy" />
+                  <img draggable="false" src={src} srcSet={imageSrcSet(src)} sizes="100px" alt="" loading="lazy" />
                 </button>
               </li>
             ))}

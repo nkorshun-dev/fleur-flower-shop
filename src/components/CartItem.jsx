@@ -11,7 +11,7 @@ export default function CartItem({ line, onQtyChange, onRemove }) {
   return (
     <li className={styles.item}>
       <Link to={`/product/${product.slug}`} className={styles.imageLink} tabIndex={-1} aria-hidden="true">
-        <img src={product.images[0]} srcSet={imageSrcSet(product.images[0])} sizes="120px" alt="" loading="lazy" className={styles.image} />
+        <img draggable="false" src={product.images[0]} srcSet={imageSrcSet(product.images[0])} sizes="120px" alt="" loading="lazy" className={styles.image} />
       </Link>
       <div className={styles.info}>
         <h3 className={styles.name}>

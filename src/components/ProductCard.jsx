@@ -23,8 +23,8 @@ export default function ProductCard({ product }) {
   return (
     <article className={styles.card}>
       <Link to={`/product/${product.slug}`} className={styles.imageLink} tabIndex={-1} aria-hidden="true">
-        <img src={product.images[0]} srcSet={imageSrcSet(product.images[0])} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" className={styles.image} />
-        {product.images[1] && <img src={product.images[1]} srcSet={imageSrcSet(product.images[1])} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" className={styles.imageAlt} />}
+        <img draggable="false" src={product.images[0]} srcSet={imageSrcSet(product.images[0])} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" className={styles.image} />
+        {product.images[1] && <img draggable="false" src={product.images[1]} srcSet={imageSrcSet(product.images[1])} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" className={styles.imageAlt} />}
       </Link>
 
       {product.tags.length > 0 && (

@@ -106,7 +106,7 @@ export default function Home() {
             <p className={styles.today}>Сегодня доставили 37 заказов</p>
           </div>
           <div className={styles.heroImage}>
-            <img src={HERO_IMAGE} alt="Витрина цветочного магазина с вёдрами свежих роз и пионов" />
+            <img draggable="false" src={HERO_IMAGE} alt="Витрина цветочного магазина с вёдрами свежих роз и пионов" />
           </div>
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function Home() {
           {CATEGORIES.map((c) => (
             <li key={c.id}>
               <Link to={`/catalog?category=${c.id}`} className={styles.category}>
-                <img src={c.image} srcSet={imageSrcSet(c.image)} sizes="(min-width: 768px) 25vw, 50vw" alt="" loading="lazy" />
+                <img draggable="false" src={c.image} srcSet={imageSrcSet(c.image)} sizes="(min-width: 768px) 25vw, 50vw" alt="" loading="lazy" />
                 <span>{c.name}</span>
               </Link>
             </li>
