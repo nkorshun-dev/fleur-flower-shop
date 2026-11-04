@@ -79,3 +79,11 @@
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
   }
 }
+
+.list :global(.demo-link),
+.socials :global(.demo-link) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: default;
+}

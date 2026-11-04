@@ -3,10 +3,12 @@ import { CATEGORIES } from '../data/products';
 import styles from './Footer.module.css';
 
 const SOCIALS = [
-  { href: 'https://instagram.com', label: 'Instagram' },
-  { href: 'https://t.me', label: 'Telegram' },
-  { href: 'https://vk.com', label: 'ВКонтакте' },
+  { label: 'Instagram' },
+  { label: 'Telegram' },
+  { label: 'ВКонтакте' },
 ];
+
+const DEMO = 'Демо-проект: ссылка не активна';
 
 export default function Footer() {
   return (
@@ -34,8 +36,12 @@ export default function Footer() {
           <h2 className={styles.title}>Контакты</h2>
           <address className={styles.list}>
             <span>г. Минск, ул. Сурганова, 43, пом. 12</span>
-            <a href="tel:+375293184672">+375 (29) 318-46-72</a>
-            <a href="mailto:hello@fleur.by">hello@fleur.by</a>
+            <span className="demo-link" aria-label="Телефон +375 29 318-46-72 (в демо не активно)" title={DEMO}>
+              +375 (29) 318-46-72
+            </span>
+            <span className="demo-link" aria-label="Почта hello@fleur.by (в демо не активно)" title={DEMO}>
+              hello@fleur.by
+            </span>
           </address>
         </div>
 
@@ -49,9 +55,9 @@ export default function Footer() {
           <ul className={styles.socials}>
             {SOCIALS.map((s) => (
               <li key={s.label}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer">
+                <span className="demo-link" aria-label={`${s.label} (в демо не активно)`} title={DEMO}>
                   {s.label}
-                </a>
+                </span>
               </li>
             ))}
           </ul>
