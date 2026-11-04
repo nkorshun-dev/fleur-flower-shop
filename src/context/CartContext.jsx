@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo, useReducer } from 'react';
 import { products } from '../data/products';
 import { readStorage, useLocalStorage, useStorageSync } from '../hooks/useLocalStorage';
 
-const STORAGE_KEY = 'fleur-cart';
+const STORAGE_KEY = 'fleur:cart';
 export const PROMO_CODE = 'FLEUR10';
 export const PROMO_DISCOUNT = 0.1;
 export const FREE_DELIVERY_FROM = 150;

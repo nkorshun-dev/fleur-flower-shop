@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo, useReducer } from 'react';
 import { products } from '../data/products';
 import { readStorage, useLocalStorage, useStorageSync } from '../hooks/useLocalStorage';
 
-const STORAGE_KEY = 'fleur-favorites';
+const STORAGE_KEY = 'fleur:favorites';
 const FavoritesContext = createContext(null);
 
 // Оставляем только существующие товары без повторов; битые данные превращаются в пустой список
