@@ -9,7 +9,7 @@ export const CATEGORIES = [
 
 export const SIZES = ['S', 'M', 'L'];
 
-export const HERO_IMAGE = img('1589244159943-460088ed5c92');
+export const HERO_IMAGE = `/fleur/img/hero-800.webp`;
 
 export const products = [
   // Букеты

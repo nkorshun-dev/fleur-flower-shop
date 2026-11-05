@@ -79,3 +79,6 @@ npm run preview  # просмотр собранной версии
 ## Фото
 
 Фотографии взяты с [Unsplash](https://unsplash.com) по прямым ссылкам.
+
+<!-- QA 2026-11-05 -->
+QA 05.11.2026: local Cormorant Garamond/Manrope WOFF2 in public/fonts/ (Latin/Cyrillic, swap/preload, OFL licenses). Original hero Unsplash photo-1589244159943-460088ed5c92 saved as public/img/hero-{480,800,1200,1600}.{avif,webp}; picture/srcset/preload retain existing crop.

@@ -106,7 +106,10 @@ export default function Home() {
             <p className={styles.today}>Сегодня доставили 37 заказов</p>
           </div>
           <div className={styles.heroImage}>
-            <img draggable="false" src={HERO_IMAGE} alt="Витрина цветочного магазина с вёдрами свежих роз и пионов" />
+            <picture>
+              <source type="image/avif" srcSet="/fleur/img/hero-480.avif 480w, /fleur/img/hero-800.avif 800w, /fleur/img/hero-1200.avif 1200w, /fleur/img/hero-1600.avif 1600w" sizes="(min-width: 768px) 45vw, 100vw" />
+              <img draggable="false" src={HERO_IMAGE} srcSet="/fleur/img/hero-480.webp 480w, /fleur/img/hero-800.webp 800w, /fleur/img/hero-1200.webp 1200w, /fleur/img/hero-1600.webp 1600w" sizes="(min-width: 768px) 45vw, 100vw" width="1600" height="2000" fetchPriority="high" alt="Витрина цветочного магазина с вёдрами свежих роз и пионов" />
+            </picture>
           </div>
         </div>
       </section>
