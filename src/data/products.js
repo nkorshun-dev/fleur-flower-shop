@@ -1,4 +1,5 @@
 const img = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&h=1000&q=80`;
+const pexels = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop`;
 
 export const CATEGORIES = [
   { id: 'bouquets', name: 'Букеты', image: img('1652346072098-cfc2e94d30e7') },
@@ -20,7 +21,7 @@ export const products = [
     category: 'bouquets',
     price: 124,
     oldPrice: null,
-    images: [img('1652346072098-cfc2e94d30e7'), img('1652346064068-1ae0d97502c3')],
+    images: [pexels(10236372), pexels(37329862)],
     description:
       'Кремовые и персиковые розы с серебристым эвкалиптом. Спокойный букет, который подходит почти к любому поводу и не спорит с интерьером.',
     composition: ['Пионовидная роза Кремовый Пион 5 шт.', 'Кустовая роза 3 ветки', 'Эвкалипт цинерея', 'Писташ', 'Матовая плёнка, атласная лента'],
@@ -100,7 +101,7 @@ export const products = [
     category: 'bouquets',
     price: 147,
     oldPrice: null,
-    images: [img('1498480086004-2400bd8c3663'), img('1711512209308-06179f150f3e')],
+    images: [pexels(13785711), pexels(13785672)],
     description:
       'Три пышных соцветия гортензии в сиреневых и розовых тонах. Выглядит объёмно даже без других цветов. Гортензия любит воду — подскажем, как продлить ей жизнь.',
     composition: ['Гортензия 3 соцветия (сиреневая и розовая)', 'Эвкалипт', 'Рускус', 'Пергамент'],
@@ -220,7 +221,7 @@ export const products = [
     category: 'bouquets',
     price: 112,
     oldPrice: 129,
-    images: [img('1590247748451-d822fefccf6e')],
+    images: [pexels(29252584)],
     description:
       'Оранжевые кустовые розы и хризантема сантини — яркое пятно в серый ноябрь. Удобно дарить коллеге: не слишком торжественно и не слишком скромно.',
     composition: ['Кустовая роза оранжевая 5 веток', 'Хризантема сантини 3 ветки', 'Гиперикум', 'Эвкалипт', 'Крафт-бумага'],

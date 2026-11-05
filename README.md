@@ -82,3 +82,20 @@ npm run preview  # просмотр собранной версии
 
 <!-- QA 2026-11-05 -->
 QA 05.11.2026: local Cormorant Garamond/Manrope WOFF2 in public/fonts/ (Latin/Cyrillic, swap/preload, OFL licenses). Original hero Unsplash photo-1589244159943-460088ed5c92 saved as public/img/hero-{480,800,1200,1600}.{avif,webp}; picture/srcset/preload retain existing crop.
+
+QA performance: initial-page CSS is embedded into dist/index.html after build (scripts/inline-critical-css.mjs); source styles and lazy route styles stay unchanged. This removes a blocking stylesheet request.
+
+
+## Проверка фотографий FLEUR-02 — 05.11.2026
+
+Визуально просмотрены все 51 фото 30 товаров на подписанных contact sheets; спорные изображения дополнительно открыты крупно. Полный покадровый статус (совпадает / явно не совпадает / неуверенно), исходные thumbnails и до/после: локальный отчёт `C:/Users/Administrator/Desktop/Claude/Портфолио/.qa-codex-continuation/functional-recheck/visual51/AUDIT.md` (QA-артефакт вне репозитория проекта). Совпадение основного вида цветка не подтверждает точное количество, сорт, высоту и каждый компонент состава.
+
+Заменены только изображения следующих товаров (названия/составы сохранены):
+
+| Товар / фото | Причина и источник |
+|---|---|
+| №1 «Сливочный пломбир», 1–2 | Убраны заметные гвоздики, отсутствующие в составе; кремовые/персиковые розы с эвкалиптом: [Heloisa Vecchio / Pexels 10236372](https://www.pexels.com/photo/close-up-photo-of-flower-bouquet-10236372/), [Inas Isleem / Pexels 37329862](https://www.pexels.com/photo/elegant-bouquet-of-mixed-roses-and-eucalyptus-37329862/). Точный сорт и весь состав по этим фото не подтверждены. |
+| №5 «Гортензия с эвкалиптом», 1–2 | Вместо отдельных ваз — одна композиция гортензии с видимыми ветвями эвкалипта: [Lara Farber / Pexels 13785711](https://www.pexels.com/photo/pink-hydrangea-flower-in-sunlight-13785711/), [тот же автор / Pexels 13785672](https://www.pexels.com/photo/photograph-of-pink-hydrangea-flowers-13785672/). Вторая фотография показывает композицию в одной вазе; три соцветия, пергамент и точные оттенки не подтверждены. |
+| №11 «Тёплый плед», 1 | Монобукет оранжевых роз заменён смешанным букетом с розами, хризантемами и эвкалиптом: [Ssümçiğ / Pexels 29252584](https://www.pexels.com/photo/elegant-bouquet-with-roses-and-chrysanthemums-29252584/). Гиперикум и точные количества не подтверждены. |
+
+Новые источники опубликованы как бесплатные фото Pexels; условия — [Pexels License](https://www.pexels.com/license/). В коде используются прямые CDN URL, без генерации или изменения содержания фото. У №13 подтверждены красные розы, тюльпанов нет. №24 оставлен с пометкой «неуверенно»: цветы и макаруны видны, но единая коробка с окошком и полный состав не подтверждаются. Кадры №15/16 не доказывают заявленные 51/101 розу; точные сорта у №4/17/18/20/30 также не удостоверены.
