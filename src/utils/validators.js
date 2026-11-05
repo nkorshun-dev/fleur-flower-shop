@@ -5,11 +5,9 @@ export const TIME_SLOTS = ['09:00–11:00', '11:00–13:00', '13:00–15:00', '1
 // Приводит ввод к виду +375 (29) 123-45-67.
 // Скобки и дефисы ставим только перед следующей цифрой — иначе Backspace «упирается» в них.
 export function formatPhone(input) {
-  let digits = input.replace(/\D/g, '');
-  if (digits.startsWith('375')) digits = digits.slice(3);
-  else if ('375'.startsWith(digits)) digits = ''; // стёрли часть префикса +375
-  else if (digits.length === 11 && digits.startsWith('80')) digits = digits.slice(2); // вставили 80 29 123-45-67
-  digits = digits.slice(0, 9);
+  // «+375» маски (или его стёртая часть) — не номер; затем снимаем набранный пользователем 375/80:
+  // кодов оператора на 37 и 80 нет, поэтому «+375 (375…» и «+375 (80…» — это префикс, а не номер.
+  const digits = input.replace(/^\s*\+(375|37|3)?/, '').replace(/\D/g, '').replace(/^375/, '').replace(/^80/, '').slice(0, 9);
 
   let result = PHONE_PREFIX;
   if (digits.length > 0) result += ` (${digits.slice(0, 2)}`;

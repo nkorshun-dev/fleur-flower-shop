@@ -163,7 +163,18 @@ export default function Checkout() {
                   autoComplete="tel"
                   placeholder="+375 (29) 123-45-67"
                   onFocus={() => !values.phone && set('phone', PHONE_PREFIX)}
-                  onChange={(e) => set('phone', formatPhone(e.target.value))}
+                  onChange={(e) => {
+                    const el = e.target;
+                    const caret = el.selectionStart ?? el.value.length;
+                    const phone = formatPhone(el.value);
+                    set('phone', phone);
+                    if (caret >= el.value.length) return;
+                    // Правка в середине: курсор после того же числа цифр, а не в конце поля.
+                    const want = formatPhone(el.value.slice(0, caret)).replace(/\D/g, '').length;
+                    let pos = 0;
+                    for (let seen = 0; pos < phone.length && seen < want; pos++) if (/\d/.test(phone[pos])) seen++;
+                    setTimeout(() => el.setSelectionRange(pos, pos), 0);
+                  }}
                 />
                 {error('phone')}
               </div>
