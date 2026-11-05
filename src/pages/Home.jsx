@@ -174,7 +174,7 @@ export default function Home() {
           {REVIEWS.map((r) => (
             <li key={r.name} className={styles.review}>
               <figure>
-                <div className={styles.stars} aria-label={`Оценка ${r.rating} из 5`}>
+                <div className={styles.stars} role="img" aria-label={`Оценка ${r.rating} из 5`}>
                   {Array.from({ length: r.rating }, (_, i) => (
                     <StarIcon key={i} width={16} height={16} />
                   ))}

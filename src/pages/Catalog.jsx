@@ -121,7 +121,33 @@ export default function Catalog() {
     if (!panelOpen) return undefined;
     const desktop = window.matchMedia(DESKTOP_QUERY);
     const close = () => setPanelOpen(false);
-    const onKey = (e) => e.key === 'Escape' && close();
+    const panel = panelRef.current;
+    const onKey = (e) => {
+      if (e.key === 'Escape') return close();
+      if (e.key !== 'Tab') return;
+      // Фокус ходит по кругу внутри панели
+      const items = [...panel.querySelectorAll('button, input, select, a[href]')].filter((el) => !el.disabled && el.offsetParent !== null);
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (!panel.contains(active) || (e.shiftKey && (active === first || active === panel))) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    // Фон недоступен: inert на всех соседях панели вплоть до корня
+    const inerted = [];
+    for (let node = panel; node && node !== document.body; node = node.parentElement) {
+      for (const sib of node.parentElement?.children ?? []) {
+        if (sib !== node && !sib.inert) {
+          sib.inert = true;
+          inerted.push(sib);
+        }
+      }
+    }
     const onResize = (e) => e.matches && close();
     const toggle = toggleRef.current;
 
@@ -134,6 +160,9 @@ export default function Catalog() {
       document.removeEventListener('keydown', onKey);
       desktop.removeEventListener('change', onResize);
       document.body.style.overflow = '';
+      inerted.forEach((el) => {
+        el.inert = false;
+      });
       if (!desktop.matches) toggle?.focus();
     };
   }, [panelOpen]);
@@ -166,10 +195,11 @@ export default function Catalog() {
           ref={panelRef}
           tabIndex={-1}
           className={`${styles.panel} ${panelOpen ? styles.panelOpen : ''}`}
-          aria-label="Фильтры"
+          {...(panelOpen ? { role: 'dialog', 'aria-modal': 'true' } : {})}
+          aria-labelledby="filters-title"
         >
           <div className={styles.panelHead}>
-            <h2 className={styles.panelTitle}>Фильтры</h2>
+            <h2 id="filters-title" className={styles.panelTitle}>Фильтры</h2>
             <button
               type="button"
               className={styles.panelClose}

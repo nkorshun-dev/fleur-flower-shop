@@ -5,7 +5,7 @@ import styles from './ProductGrid.module.css';
 export default function ProductGrid({ products, loading = false, skeletonCount = 8 }) {
   if (loading) {
     return (
-      <div className={styles.grid} aria-busy="true" aria-label="Загрузка товаров">
+      <div className={styles.grid} role="status" aria-busy="true" aria-label="Загрузка товаров">
         {Array.from({ length: skeletonCount }, (_, i) => (
           <Skeleton key={i} />
         ))}

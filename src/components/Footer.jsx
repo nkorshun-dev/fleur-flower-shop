@@ -36,10 +36,10 @@ export default function Footer() {
           <h2 className={styles.title}>Контакты</h2>
           <address className={styles.list}>
             <span>г. Минск, ул. Сурганова, 43, пом. 12</span>
-            <span className="demo-link" aria-label="Телефон +375 29 318-46-72 (в демо не активно)" title={DEMO}>
+            <span className="demo-link" role="img" aria-label="Телефон +375 29 318-46-72 (в демо не активно)" title={DEMO}>
               +375 (29) 318-46-72
             </span>
-            <span className="demo-link" aria-label="Почта hello@fleur.by (в демо не активно)" title={DEMO}>
+            <span className="demo-link" role="img" aria-label="Почта hello@fleur.by (в демо не активно)" title={DEMO}>
               hello@fleur.by
             </span>
           </address>
@@ -55,7 +55,7 @@ export default function Footer() {
           <ul className={styles.socials}>
             {SOCIALS.map((s) => (
               <li key={s.label}>
-                <span className="demo-link" aria-label={`${s.label} (в демо не активно)`} title={DEMO}>
+                <span className="demo-link" role="img" aria-label={`${s.label} (в демо не активно)`} title={DEMO}>
                   {s.label}
                 </span>
               </li>
